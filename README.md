@@ -3,9 +3,7 @@
 # Tarea de Grafos
 
 ## Integrantes: 
-- 1 ____   _____
-- 2 ____   _____
-- 3 ____   _____
+- 1 Fabio Dávila Venturo
 
 ## Objetivo: 
 El objetivo de esta tarea es implementar un **Path Finder** para la ciudad de Lima. 
@@ -67,6 +65,82 @@ Además:
 ----------
 > **Créditos:** Juan Diego Castro Padilla [juan.castro.p@utec.edu.pe](mailto:juan.castro.p@utec.edu.pe)
 
+# Cambios en el sistema de animación
+
+Originalmente, la ejecución de los algoritmos se realizaba mostrando cada paso. Al menos en mi pc, esto hacía que la animación durara varios minutos y consumiera demasiados recursos. Se reemplazó el sistema de animación por uno **sin visualización paso a paso**. El dibujo de la ruta óptima solo se hace al terminar el algoritmo. Además, el usuario puede visualizar las aristas visitadas presionando E.
+
+# Complejidad computacional según la implementación
+
+Sea:
+
+* **N** = número de nodos
+* **A** = número de aristas
+
+### ✔ **Dijkstra**
+
+En la implementación:
+
+* Inserciones en heap → $O(log N)$
+* Cada arista realiza como máximo una relajación
+
+**Complejidad total:**
+
+$O((N + A)log N)$
+
+
+Motivo:
+Cada arista puede provocar una disminución de distancia → push al heap → $log N$.
+
+### ✔ **A***
+
+A* utiliza:
+
+$f(n) = g(n) + h(n)$
+
+La operación dominante es la misma que en Dijkstra:
+relajaciones y pushes al priority_queue.
+
+**Complejidad en el peor caso:**
+
+$O( (N + A) log N )$
+
+### ✔ **Best First Search (Greedy BFS)**
+
+Solo utiliza la heurística:
+
+$f(n) = h(n)$
+
+Entonces siempre expande el nodo “más cercano” al destino.
+También usa un min-heap, por lo que su complejidad es:
+
+$O( (N + A) log N )$
+
+# Menú de opciones implementado (GUI)
+
+Para facilitar la interacción, se implementó un **menú** dentro de la ventana principal utilizando la fuente **Arial (arial.ttf)**.
+La GUI muestra el estado actual de la aplicación y las acciones disponibles.
+
+### ✔ Elementos del menú mostrados en pantalla
+
+* Estado actual:
+  * “Start seleccionado”
+  * “End seleccionado”
+  * “Algoritmo ejecutado”
+  * “Selecciona Start y End primero”
+* Lista de comandos disponibles
+
+# Entorno usado (VSCode + MSYS2 + CMake + SFML)
+
+Todo el proyecto se desarrolló utilizando **Visual Studio Code** como editor y **MSYS2** como entorno de compilación para poder usar:
+
+* `gcc` / `g++` del entorno UCRT64
+* `ninja` como generador de build
+* `cmake` para la configuración del proyecto
+* instalación de **SFML** desde MSYS2
+
+# Video demostración:
+
+[Carpeta de Drive con el video](https://drive.google.com/drive/folders/1lkgyVuK_SwPLsIvNF7-ooDv50bL_PoZs?usp=sharing)
 
 
 

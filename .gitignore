@@ -1,2 +1,38 @@
-.idea/
-cmake-build-debug/
+# ====================================
+#   BUILD SYSTEM (CMake + Ninja)
+# ====================================
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+Makefile
+*.ninja
+*.ninja_deps
+*.ninja_log
+
+# ====================================
+#   EXECUTABLES / BINARIOS
+# ====================================
+*.exe
+*.dll
+*.so
+*.a
+*.lib
+*.obj
+*.o
+*.pdb
+
+# ====================================
+#   VSCode CONFIG
+# ====================================
+.vscode/
+*.code-workspace
+
+# ====================================
+#   LOGS / TEMP
+# ====================================
+*.log
+*.tmp
+*.temp
